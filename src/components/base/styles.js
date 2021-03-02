@@ -15,10 +15,6 @@ export default StyleSheet.create({
     shadowRadius: 6,
     elevation: 2
   },
-  borderLeft: {
-    borderLeftWidth: 5,
-    borderLeftColor: colors.alto
-  },
   leadingIconContainer: {
     width: 50,
     justifyContent: 'center',

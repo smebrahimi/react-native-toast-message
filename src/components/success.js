@@ -9,7 +9,6 @@ function SuccessToast(props) {
     <BaseToast
       {...props}
       style={{ borderLeftColor: colors.mantis }}
-      leadingIcon={icons.success}
     />
   );
 }

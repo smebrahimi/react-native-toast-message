@@ -9,7 +9,6 @@ function InfoToast(props) {
     <BaseToast
       {...props}
       style={{ borderLeftColor: colors.lightSkyBlue }}
-      leadingIcon={icons.info}
     />
   );
 }

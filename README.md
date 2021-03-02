@@ -189,12 +189,10 @@ Available `props` on `BaseToast`:
 
 ```js
 const baseToastProps = {
-  leadingIcon: ImageSource,
   trailingIcon: ImageSource,
   text1: String,
   text2: String,
   onPress: Function,
-  onLeadingIconPress: Function,
   onTrailingIconPress: Function,
   style: ViewStyle,
   leadingIconContainerStyle: ViewStyle,

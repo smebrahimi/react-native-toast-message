@@ -5,20 +5,16 @@ import PropTypes from 'prop-types';
 import Icon from '../icon';
 import { icons } from '../../assets';
 import { stylePropType } from '../../utils/prop-types';
-import styles, { HEIGHT } from './styles';
+import styles from './styles';
 
 function BaseToast({
-  leadingIcon,
   trailingIcon,
   text1,
   text2,
   onPress,
-  onLeadingIconPress,
   onTrailingIconPress,
   style,
-  leadingIconContainerStyle,
   trailingIconContainerStyle,
-  leadingIconStyle,
   trailingIconStyle,
   contentContainerStyle,
   text1Style,
@@ -33,18 +29,6 @@ function BaseToast({
       style={[styles.base, style]}
       onPress={onPress}
       activeOpacity={onPress ? activeOpacity : 1}>
-      {leadingIcon && (
-        <TouchableOpacity
-          testID='leadingIcon'
-          style={[styles.leadingIconContainer, leadingIconContainerStyle]}
-          onPress={onLeadingIconPress}
-          activeOpacity={onLeadingIconPress ? activeOpacity : 1}>
-          <Icon
-            style={{ ...styles.leadingIcon, ...leadingIconStyle }}
-            source={leadingIcon}
-          />
-        </TouchableOpacity>
-      )}
 
       <View
         testID='contentContainer'
@@ -53,8 +37,7 @@ function BaseToast({
           <View>
             <Text
               testID='text1'
-              style={[styles.text1, text1Style]}
-              numberOfLines={text1NumberOfLines}>
+              style={[styles.text1, text1Style]}>
               {text1}
             </Text>
           </View>
@@ -87,20 +70,14 @@ function BaseToast({
   );
 }
 
-BaseToast.HEIGHT = HEIGHT;
-
 BaseToast.propTypes = {
-  leadingIcon: Icon.propTypes.source,
   trailingIcon: Icon.propTypes.source,
   text1: PropTypes.string,
   text2: PropTypes.string,
   onPress: PropTypes.func,
   onTrailingIconPress: PropTypes.func,
-  onLeadingIconPress: PropTypes.func,
   style: stylePropType,
-  leadingIconContainerStyle: stylePropType,
   trailingIconContainerStyle: stylePropType,
-  leadingIconStyle: stylePropType,
   trailingIconStyle: stylePropType,
   contentContainerStyle: stylePropType,
   text1Style: stylePropType,
@@ -111,17 +88,13 @@ BaseToast.propTypes = {
 };
 
 BaseToast.defaultProps = {
-  leadingIcon: undefined,
   trailingIcon: icons.close,
   text1: undefined,
   text2: undefined,
   onPress: undefined,
-  onLeadingIconPress: undefined,
   onTrailingIconPress: undefined,
   style: undefined,
-  leadingIconContainerStyle: undefined,
   trailingIconContainerStyle: undefined,
-  leadingIconStyle: undefined,
   trailingIconStyle: undefined,
   contentContainerStyle: undefined,
   text1Style: undefined,

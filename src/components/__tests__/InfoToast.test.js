@@ -11,11 +11,9 @@ describe('test InfoToast component', () => {
   it('renders style correctly', () => {
     const { queryByTestId } = render(<InfoToast />);
     const rootView = queryByTestId('rootView');
-    const leadingIcon = queryByTestId('leadingIcon');
 
     expect(rootView).toHaveStyle({
       borderLeftColor: colors.lightSkyBlue
     });
-    expect(leadingIcon.children[0].props.source).toBe(icons.info);
   });
 });

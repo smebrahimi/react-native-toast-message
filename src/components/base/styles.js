@@ -8,17 +8,9 @@ export default StyleSheet.create({
     flexDirection: 'row',
     minHeight: HEIGHT,
     width: '90%',
-    borderRadius: 6,
     backgroundColor: colors.white,
-    shadowOffset: { width: 0, height: 0 },
-    shadowOpacity: 0.1,
-    shadowRadius: 6,
-    elevation: 2
-  },
-  leadingIconContainer: {
-    width: 50,
-    justifyContent: 'center',
-    alignItems: 'center'
+    elevation: 2,
+    borderWidth: 1
   },
   contentContainer: {
     flex: 1,
@@ -30,21 +22,14 @@ export default StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center'
   },
-  leadingIcon: {
-    width: 20,
-    height: 20
-  },
   trailingIcon: {
     width: 9,
     height: 9
   },
   text1: {
-    fontSize: 12,
-    fontWeight: 'bold',
-    marginBottom: 3
+    fontSize: 15,
   },
   text2: {
-    fontSize: 10,
-    color: colors.dustyGray
+    fontSize: 15
   }
 });

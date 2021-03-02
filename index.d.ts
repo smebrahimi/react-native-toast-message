@@ -9,17 +9,13 @@ declare module 'react-native-toast-message' {
   export type ToastPosition = 'top' | 'bottom'
 
   export interface BaseToastProps {
-    leadingIcon?: ImageSourcePropType,
     trailingIcon?: ImageSourcePropType,
     text1?: string,
     text2?: string,
     onPress?: () => void,
     onTrailingIconPress?: () => void,
-    onLeadingIconPress?: () => void,
     style?: ViewStyle,
-    leadingIconContainerStyle?: ViewStyle,
     trailingIconContainerStyle?: ViewStyle,
-    leadingIconStyle?: ViewStyle,
     trailingIconStyle?: ViewStyle,
     contentContainerStyle?: ViewStyle,
     text1Style?: TextStyle,

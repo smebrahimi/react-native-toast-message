@@ -11,7 +11,6 @@ describe('test Base component', () => {
   it('renders default Views', () => {
     const { queryByTestId } = render(<Base />);
     const rootView = queryByTestId('rootView');
-    const leadingIcon = queryByTestId('leadingIcon');
     const trailingIcon = queryByTestId('trailingIcon');
     const text1 = queryByTestId('text1');
     const text2 = queryByTestId('text2');
@@ -25,22 +24,8 @@ describe('test Base component', () => {
     });
     expect(text1).toBeFalsy();
     expect(text2).toBeFalsy();
-    expect(leadingIcon).toBeFalsy();
     expect(trailingIcon).toBeTruthy();
     expect(trailingIcon.children[0].props.source).toBe(icons.close);
-  });
-
-  it('renders custom leadingIcon and trailingIcon', () => {
-    const mockIcon = { uri: 'iconSource' };
-
-    const { queryByTestId } = render(
-      <Base leadingIcon={mockIcon} trailingIcon={mockIcon} />
-    );
-    const leadingIcon = queryByTestId('leadingIcon');
-    const trailingIcon = queryByTestId('trailingIcon');
-
-    expect(leadingIcon.children[0].props.source).toBe(mockIcon);
-    expect(trailingIcon.children[0].props.source).toBe(mockIcon);
   });
 
   it('renders text1 and text2', () => {
@@ -64,31 +49,6 @@ describe('test Base component', () => {
     expect(onPress).toHaveBeenCalled();
   });
 
-  it('fires onLeadingIconPress and onTrailingIconPress', () => {
-    const onLeadingIconPress = jest.fn();
-    const onTrailingIconPress = jest.fn();
-    const mockIcon = { uri: 'mock' };
-
-    const { queryByTestId } = render(
-      <Base
-        leadingIcon={mockIcon}
-        trailingIcon={mockIcon}
-        onLeadingIconPress={onLeadingIconPress}
-        onTrailingIconPress={onTrailingIconPress}
-      />
-    );
-    const leadingIcon = queryByTestId('leadingIcon');
-    const trailingIcon = queryByTestId('trailingIcon');
-
-    fireEvent.press(leadingIcon);
-    expect(onLeadingIconPress).toHaveBeenCalledTimes(1);
-    expect(onTrailingIconPress).toHaveBeenCalledTimes(0);
-
-    fireEvent.press(trailingIcon);
-    expect(onLeadingIconPress).toHaveBeenCalledTimes(1);
-    expect(onTrailingIconPress).toHaveBeenCalledTimes(1);
-  });
-
   it('sets custom style on root View', () => {
     const mockStyle = {
       height: 20
@@ -97,21 +57,6 @@ describe('test Base component', () => {
     const rootView = queryByTestId('rootView');
 
     expect(rootView).toHaveStyle(mockStyle);
-  });
-
-  it('sets custom style on leading icon container', () => {
-    const mockStyle = {
-      width: 40
-    };
-    const { queryByTestId } = render(
-      <Base
-        leadingIcon={{ uri: 'mock' }}
-        leadingIconContainerStyle={mockStyle}
-      />
-    );
-    const leadingIcon = queryByTestId('leadingIcon');
-
-    expect(leadingIcon).toHaveStyle(mockStyle);
   });
 
   it('sets custom style on trailing icon container', () => {
@@ -126,18 +71,7 @@ describe('test Base component', () => {
     expect(trailingIcon).toHaveStyle(mockStyle);
   });
 
-  it('sets custom style on leading icon', () => {
-    const mockStyle = {
-      width: 25,
-      height: 25
-    };
-    const { queryByTestId } = render(
-      <Base leadingIcon={{ uri: 'mock' }} leadingIconStyle={mockStyle} />
-    );
-    const leadingIcon = queryByTestId('leadingIcon');
-
-    expect(leadingIcon.children[0]).toHaveStyle(mockStyle);
-  });
+ 
 
   it('sets custom style on trailing icon', () => {
     const mockStyle = {

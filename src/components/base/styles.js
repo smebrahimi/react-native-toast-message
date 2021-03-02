@@ -6,7 +6,7 @@ export const HEIGHT = 60;
 export default StyleSheet.create({
   base: {
     flexDirection: 'row',
-    height: HEIGHT,
+    minHeight: HEIGHT,
     width: '90%',
     borderRadius: 6,
     backgroundColor: colors.white,

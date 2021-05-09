@@ -60,10 +60,11 @@ function BaseToast({
           style={[styles.trailingIconContainer, trailingIconContainerStyle]}
           onPress={onTrailingIconPress}
           activeOpacity={onTrailingIconPress ? activeOpacity : 1}>
-          <Icon
+          {/*<Icon
             style={{ ...styles.trailingIcon, ...trailingIconStyle }}
             source={trailingIcon}
-          />
+          />*/}
+          { trailingIcon }
         </TouchableOpacity>
       )}
     </TouchableOpacity>
